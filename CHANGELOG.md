@@ -1,3 +1,7 @@
+## 0.1.4
+Dispatch event class supports getName method on the event.
+
+
 ## 0.1.3
 Updated README to describe EventDiscovery.
 

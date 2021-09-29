@@ -190,7 +190,7 @@ class Dispatcher implements EventDispatcherInterface
      * @param  mixed  $payload
      * @return array|null
      */
-    public function dispatch( $event, $payload = [] )
+    public function dispatch( $event, $payload = null )
     {
         // resolve stoppable capability
         $stoppable = $event instanceof StoppableEventInterface;
@@ -330,7 +330,11 @@ class Dispatcher implements EventDispatcherInterface
     {
         if (is_object($event)) {
 
-            if ( property_exists($event, 'name') && isset($event->{'name'}) ) {
+            if ( property_exists($event, 'name') && method_exists($event, 'getName') ) {
+
+                [$event, $payload] = [$event->getName(), $event];                
+
+            } elseif ( property_exists($event, 'name') && isset($event->{'name'}) ) {
 
                 [$event, $payload] = [$event->{'name'}, $event];                
 
