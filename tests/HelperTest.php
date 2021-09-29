@@ -13,7 +13,7 @@ class HelperTest extends TestCase
     {
         $event = new Event(['name' => 'Event', 'data' => ['first', 'second']]);
 
-        $dispatcher = new Dispatcher;
+        $dispatcher = new Dispatcher(false);
 
         listen('test', function($arg) { return 'just a test'; }, $dispatcher);
 

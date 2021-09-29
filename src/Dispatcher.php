@@ -45,11 +45,13 @@ class Dispatcher implements EventDispatcherInterface
     /**
      * Create a new class instance.
      *
+     * @param bool $autoDiscover
      * @return void
      */
-    public function __construct()
+    public function __construct( $autoDiscover = true )
     {
-        $this->discoverEvents();
+        if ( $autoDiscover )
+            $this->discoverEvents();
     } 
 
 

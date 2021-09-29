@@ -3,7 +3,8 @@
 namespace Tests;
 
 use PHPUnit\Framework\TestCase;
-use Tests\CallableClass;
+use Tests\Data\CallableClass;
+use Tests\Data\TestEventListener;
 use Tests\Data\TestEventSubscriber;
 use Tests\Data\TestEventSubscriberWithMultipleListeners;
 use Tests\Data\TestEventSubscriberWithPriorities;
@@ -40,7 +41,7 @@ class EventSubscriberTest extends TestCase
 
     protected function createEventDispatcher()
     {
-        return new Dispatcher();
+        return new Dispatcher(false);
     }
 
     public function testAddSubscriber()

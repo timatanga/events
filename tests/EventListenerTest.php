@@ -35,7 +35,7 @@ class EventListenerTest extends TestCase
 
     protected function createEventDispatcher()
     {
-        return new Dispatcher();
+        return new Dispatcher(false);
     }
 
     public function testAddListener()

@@ -59,7 +59,7 @@ interface EventDispatcherInterface
      * @param  mixed  $payload
      * @return array|null
      */
-    public function dispatch( $event, $payload = [] );
+    public function dispatch( $event, $payload = null );
 
 
     /**
