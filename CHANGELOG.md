@@ -1,3 +1,11 @@
+## 0.1.3
+Updated README to describe EventDiscovery.
+
+
+## 0.1.2
+Updated the `EventDispatcherInterface` dispatch method arguments. The second (payload) argument don't need to of type array.
+
+
 ## 0.1.1
 Extending Dispatcher with `EventDiscovery` for autodetecting listeners and subscribers.
 An events.php config file allows for configuration of listeners and subscriber directories which will be scaned in the Dispatcher constructor method.

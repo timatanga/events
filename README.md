@@ -174,5 +174,30 @@ The dispatcher invokes the registered methods if an event gets dispatched. The d
 * dispatcher: the dispatcher instance to allow for advanced use cases
 
 
+
 ## Auto Discovery
+Instead of programmatically register all event listeners and event subscribers individually the package provides an event discovery feature. Within the config/events.php file, directories containing listeners and subscribers can be added for auto discovery. 
+
+	return [
+
+	    'listeners' => [
+	        'timatanga/events/tests/Data'
+	    ],
+
+	    'subscribers' => [
+	        'timatanga/events/tests/Data'
+	    ],
+	];
+
+
+The above configuration would look for event listeners and subscribers within the timatanga/events/tests/Data directories.
+
+Event listeners must implement the `timatanga\Events\Contracts\EventListenerInterface` which enforced a static handle method to execute on the event.
+Event subscribers must implement the `timatanga\Events\Contracts\EventSubscriberInterface` as described in the previous chapters.
+
+After identifying classes implementing according Interfaces, the listeners and subscribers get registered in the event dispatcher.
+If you wand to avoid auto discovery, please create a dispatcher instance like 
+
+	$dispatcher = new Dispatcher(['autoDiscovery' => false]);
+
 

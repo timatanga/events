@@ -48,9 +48,9 @@ class Dispatcher implements EventDispatcherInterface
      * @param bool $autoDiscover
      * @return void
      */
-    public function __construct( $autoDiscover = true )
+    public function __construct( $arguments = ['autoDiscover' => true] )
     {
-        if ( $autoDiscover )
+        if ( isset($arguments['autoDiscover']) && $arguments['autoDiscover'])
             $this->discoverEvents();
     } 
 
