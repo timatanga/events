@@ -3,6 +3,9 @@
 namespace Tests;
 
 use PHPUnit\Framework\TestCase;
+use Tests\Data\EventByName;
+use Tests\Data\EventByPropertyName;
+use Tests\Data\TestEventListener;
 use timatanga\Events\Dispatcher;
 use timatanga\Events\Event;
 
@@ -66,7 +69,7 @@ class EventDispatcherTest extends TestCase
     {
         $this->dispatcher->listen('event_by_name', function($arg) { return $arg->getSubject(); });
 
-        $result = $this->dispatcher->dispatch(new EventByName());
+        $result = $this->dispatcher->dispatch(new EventByName('test'));
 
         $this->assertTrue( $result[0] == 'test');
     }

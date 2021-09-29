@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the Dispatcher package.
+ * This file is part of the Events package.
  *
  * (c) Mark Fluehmann dbiz.apps@gmail.com
  *
@@ -14,6 +14,7 @@ namespace timatanga\Events;
 use Psr\EventDispatcher\StoppableEventInterface;
 use timatanga\Events\Contracts\EventDispatcherInterface;
 use timatanga\Events\Contracts\EventSubscriberInterface;
+use timatanga\Events\EventDiscovery;
 use timatanga\Events\Exceptions\RegisterEventException;
 
 class Dispatcher implements EventDispatcherInterface
@@ -40,14 +41,35 @@ class Dispatcher implements EventDispatcherInterface
      */
     private $cached = [];
 
+
     /**
      * Create a new class instance.
      *
      * @return void
      */
     public function __construct()
-    { 
+    {
+        $this->discoverEvents();
     } 
+
+
+    /**
+     * Auto discover event subscribers
+     *
+     * @return void
+     */
+    public function discoverEvents()
+    {
+        $discovered = EventDiscovery::discover();
+
+        foreach ($discovered['listeners'] as $event => $listener) {
+            $this->listen($event, $listener);
+        }
+
+        foreach ($discovered['subscribers'] as $subscriber) {
+            $this->subscribe($subscriber);
+        }
+    }
 
 
     /**
@@ -173,7 +195,7 @@ class Dispatcher implements EventDispatcherInterface
 
         // When the given "event" is an object the event class is assumed as event name
         [$eventName, $payload] = $this->parseEventAndPayload($event, $payload);
-dump($eventName);
+
         $responses = [];
 
         foreach ($this->getListeners($eventName) as $listener) {

@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the Dispatcher package.
+ * This file is part of the Events package.
  *
  * (c) Mark Fluehmann dbiz.apps@gmail.com
  *
@@ -32,7 +32,7 @@ class Event implements StoppableEventInterface, \ArrayAccess, \IteratorAggregate
 
 
     /**
-     * Class constructor
+     * Create a new class instance.
      *
      * @param mixed $subject   The subject of the event, usually an object or a callable
      * @param array $arguments Arguments to store in the event

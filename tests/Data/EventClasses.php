@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests;
+namespace Tests\Data;
 
 use timatanga\Events\Contracts\EventSubscriberInterface;
 use timatanga\Events\Event;

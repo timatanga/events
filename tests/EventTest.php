@@ -5,9 +5,6 @@ namespace Tests;
 use timatanga\Events\Event;
 use PHPUnit\Framework\TestCase;
 
-/**
- * Test class for Event.
- */
 class EventTest extends TestCase
 {
     /**

@@ -3,6 +3,7 @@
 namespace Tests;
 
 use PHPUnit\Framework\TestCase;
+use Tests\Data\TestEventListener;
 use timatanga\Events\Dispatcher;
 use timatanga\Events\Event;
 

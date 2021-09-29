@@ -18,6 +18,7 @@ So why not bringing these advantages together in a single, easy and lightweight 
 composer require timatanga/events
 
 
+
 ## Dispatcher
 The Dispatcher class is like the heartbeat of an event notification system. Events and listeners
 Creating an event dispatcher instance is as easy as:
@@ -110,6 +111,7 @@ The Event class implements ArrayAccess and IteratorAggregate which makes it very
 The Event class implements the StoppableEventInterface. Since a listener has access to the event itself, it can stop further progagation by using $e->stopPropagation(). Any listener waiting to be processed for that event name will not get notified by the event dispatcher.
 
 
+
 ## Listeners
 To take advantage of an existing event, you need to connect a listener to the dispatcher so that it can be notified when the event is dispatched. A call to the dispatcher’s listen() method associates any valid PHP callable to an event. The listen() method takes up to two arguments:
 * the event name (string) that this listener wants to listen to;
@@ -170,3 +172,7 @@ Another way to listen to events is via an event subscriber. An event subscriber 
 The dispatcher invokes the registered methods if an event gets dispatched. The dispatcher allows for two listener arguments
 * payload: event class itself or payload provided when registered an event via the listen method
 * dispatcher: the dispatcher instance to allow for advanced use cases
+
+
+## Auto Discovery
+

@@ -3,8 +3,13 @@
 namespace Tests;
 
 use PHPUnit\Framework\TestCase;
-use timatanga\Events\Dispatcher;
+use Tests\CallableClass;
+use Tests\Data\TestEventSubscriber;
+use Tests\Data\TestEventSubscriberWithMultipleListeners;
+use Tests\Data\TestEventSubscriberWithPriorities;
+use Tests\Data\TestWithDispatcher;
 use timatanga\Events\Contracts\EventSubscriberInterface;
+use timatanga\Events\Dispatcher;
 use timatanga\Events\Event;
 
 class EventSubscriberTest extends TestCase

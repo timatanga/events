@@ -1,6 +1,6 @@
 {
     "name": "timatanga/events",
-    "description": "The timatanga events package",
+    "description": "The timatanga Events package",
     "type": "library",
     "require": {
         "php": "^8.0",
@@ -24,7 +24,7 @@
             "Tests\\": "tests/"
         },
         "files": [
-            "tests/EventClasses.php"
+            "tests/Data/EventClasses.php"
         ]
     },
     "authors": [
